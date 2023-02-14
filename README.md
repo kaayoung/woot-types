@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# 과제 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1번
 
-## Available Scripts
+### 실행 결과 : 1 2 3 3 3
 
-In the project directory, you can run:
+### 실행 이유
 
-### `npm start`
+첫 줄과 마지막 줄은 비동기 처리를 하지 않았기 때문에 동기적으로 1과 2가 나온다
+이 후 3줄의 비동기 처리로 인해 3이 나온다 (리스트에 원소가 3개 이므로 3번 3이 나온다)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 2번
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 실행 결과 : Parent 라는 클래스가 생성된다
 
-### `npm test`
+### 개선해야 할 점
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+클래스 내의 method() 는 클래스가 생성되면 나오는 함수이므로 생성자와 역할이 같다. 따라서 childMethod() 대신
+constructor(){console.log(this.value)}
+로 쓴다
 
-### `npm run build`
+## 3번
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 실행 결과 : 7 12
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 실행 이유
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+makeAdder 은 함수를 리턴하므로 add5와 add10은 함수인 것이다. 즉, add5는 y+5 함수인 것이고, add10은 y+10 함수다.
+그리고 마지막에 add5 와 add10에 각각 변수를 넣었으므로 각각의 합이 출력된다.
