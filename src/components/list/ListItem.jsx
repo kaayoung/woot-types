@@ -15,12 +15,20 @@ export default function ListItem({data}) {
     localStorage.setItem(`${data.id}Comment`, JSON.stringify(commentData));    
 
     useEffect(() => {
-        setCommentCnt(JSON.parse(localStorage.getItem(`${data.id}Comment`)).length + data.comments.length);
+        if (JSON.parse(localStorage.getItem(`${data.id}Comment`))!=null) {
+            setCommentCnt(JSON.parse(localStorage.getItem(`${data.id}Comment`)).length + data.comments.length);
+        }else {
+            setCommentCnt(data.comments.length)
+        }
     },[commentData])
 
     function handleCommentSubmit(e) {
-        e.preventDefault() ;                
-        setCommentData([...commentData, comment ]);        
+        e.preventDefault() ;
+        if (commentData!=null) {
+            setCommentData([...commentData, comment ]);   
+        }else {
+            setCommentData([comment])
+        }
         setComment("");             
     }
 
@@ -42,7 +50,7 @@ export default function ListItem({data}) {
                     </IconBtn>
                     <IconBtn className="comments">
                         <img src={commentsIcon} alt="commentsIcon" />
-                        <span>{data.comments.length}</span>
+                        <span>{commentCnt}</span>
                     </IconBtn>
                     <div className="etc">
                         <img src={etcIcon} alt="etcIcon" />

@@ -6,12 +6,14 @@ import commentIcon from '../../icons/chatbubble-outline.png' ;
 
 export default function AskList({id,to, content, writerMbti,writerName,likes,commentsCnt}) {
 
-    const [commentCnt, setCommentCnt] = useState() ;
-    // let cnt = JSON.parse(localStorage.getItem(`${id}Comment`)).length ; 
+    const [commentCnt, setCommentCnt] = useState(commentsCnt) ;    
 
     useEffect(() => {
-        setCommentCnt(JSON.parse(localStorage.getItem(`${id}Comment`)).length + commentsCnt);
-        console.log(JSON.parse(localStorage.getItem(`${id}Comment`)).length)
+        if (JSON.parse(localStorage.getItem(`${id}Comment`))!=null) {
+            setCommentCnt(JSON.parse(localStorage.getItem(`${id}Comment`)).length + commentsCnt);
+        } else {
+            setCommentCnt(commentsCnt)
+        }
     },[])
 
     return (
